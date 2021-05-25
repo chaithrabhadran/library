@@ -96,22 +96,21 @@
           <div class="panel-body">
 
 
-
             <!--/stories-->
 
             <div class="box">
-              <form id="form" action="#">
+              <form id="form" method="POST" action="signup/auth">
                 <div class="box1">
                   <!-- <h1>LogIn</h1> -->
                   <div class="textbox">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <input type="email" id="email" placeholder="Username or Email" >
+                    <input type="email" name="email" id="email" placeholder="Username or Email" >
                     <br><small>Error Message</small>
 
                   </div>
                   <div class="textbox">
                     <i class="fa fa-lock" aria-hidden="true"></i>
-                    <input type="password" id="pwd" placeholder="Password" name="Password">
+                    <input type="password" name="password" id="pwd" placeholder="Password" name="Password">
                     <br><small>Error Message</small>
                   </div>
                   <input class="button" type="submit" value="Log In">
@@ -176,7 +175,7 @@
         </div>
         <div class="col-sm-6">
           <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a
-              href="http://www.bootply.com">Bootply</a></p>
+              href="https://www.bootply.com">Bootply</a></p>
         </div>
       </div>
     </div>
@@ -184,6 +183,9 @@
   <!-- script references -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
+
+  
   <script>
     let email = document.getElementById("email");
 let pwd = document.getElementById("pwd");
@@ -211,7 +213,7 @@ function validateInput() {
 }
 
 document.querySelector("input.button")
-    .addEventListener("click", (event) => {
+    .addEventListener("mouseover", (event) => {
         event.preventDefault();
         validateInput();
     });

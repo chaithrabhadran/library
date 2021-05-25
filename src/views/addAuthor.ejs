@@ -52,7 +52,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Authors
+        <h1>Add Author
           <p class="lead"></p>
         </h1>
       </div>
@@ -91,26 +91,50 @@
           
           
           <!--/stories-->
-          <%for(i=0;i<authors.length;i++){%>
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img  src="/images/<%=authors[i].image%>" onerror="this.src='/images/unavailable.jpg';" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%=authors[i].author%></h3>
-              <div class="row"> 
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=authors[i].book%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=authors[i].genre%>  • 
-                    <a href="/authors/<%=authors[i]._id%>" class="text-muted">Read More</a></small>
-                  </h4></div>
-                <div class="col-xs-3"></div>
+          <!-- <div class="row">    
+            <form method="POST" action="/admins/adds" >
+                
+                Author: <input type="text" name="author"><br>
+                Book: <input type="text" name="book"><br>
+                Genre: <input type="text" name="genre"><br>
+                Image: <input type="file" name="image"><br>
+           <button type="submit">Add</button>
+            </form>
+          </div> -->
+
+
+          <!-- ------------------------NEW -->
+          <form id="form1" method="POST" action="/admins/adds">
+            <div class="box1">
+              <div class="textbox">
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <input type="text"   name="author"  id="name" placeholder="Author Name" valu>
+                <i id="inames" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
+                <br> <small id="asd1" >Error Message</small>
               </div>
-              <br><br>
+              <div class="textbox">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <input type="text"   name="book" id="aname" placeholder="Book Name" name="Username" valu>
+                <i id="iemail" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
+                <br> <small id ="asd2">Error Message</small>
+              </div>
+              <div class="textbox">
+                <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                <input type="text"   name="genre"  id="gname" placeholder="Genre">
+                <i id="iphone" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
+                <br> <small id="asd3" >Error Message</small>
+              </div>
+
+              <div class="textbox" style="border-color: transparent; height: 100px;">
+                Select Image:<br><br>
+                <input type="file" name="image"  id="img"  accept="image/*">
+              </div>
+
+              <input class="buttons" onclick="resetcolor()" type="submit" value="Add">
+
             </div>
-          </div>
-          <%}%>
+          </form>
+<!-- ------------------------------------------NEW -->
           <hr>
           
           

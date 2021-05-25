@@ -100,39 +100,39 @@
             <!--/stories-->
 
             <div class="box">
-              <form id="form" action="#">
+              <form id="form"  method="POST" action="/signup/register">
                   <div class="box1">
                       <div class="textbox">
                           <i class="fa fa-user" aria-hidden="true"></i>
-                          <input type="text" id="name" placeholder="Full Name" valu>
+                          <input type="text" name="name" id="name" placeholder="Full Name" valu>
                           <i id="inames" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
                    <br> <small>Error Message</small>
                       </div>
                       <div class="textbox">
                           <i class="fa fa-envelope" aria-hidden="true"></i>
-                          <input type="email" id="email" placeholder="Email id" name="Username" valu>
+                          <input type="text" name="email" id="email" placeholder="Email id" name="Username" valu>
                           <i id="iemail" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
                          <br> <small>Error Message</small>
                       </div>
                       <div class="textbox">
                           <i class="fa fa-phone" aria-hidden="true"></i>
-                          <input type="phone" id="phone" placeholder="Mobile Number">
+                          <input type="phone" name="phone" id="phone" placeholder="Mobile Number">
                           <i id="iphone" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
                          <br> <small>Error Message</small>
                       </div>
                       <div class="textbox" id="textbox1">
                           <i class="fa fa-lock" aria-hidden="true"></i>
-                          <input type="password" id="pwd" placeholder="Password" name="Password" valu>
+                          <input type="password" name="password" id="pwd" placeholder="Password"  valu>
                           <i id="ipwd" class="fa fa-check-circle" style="visibility: hidden;"  aria-hidden="true"></i>
                         <br><small id="msg">Error Message</small>
                       </div>
                       <div class="textbox">
                           <i class="fa fa-lock" aria-hidden="true"></i>
-                          <input type="password" id="cpwd" placeholder="Confirm Password" name="Password" valu>
+                          <input type="password" name="cpassword" id="cpwd" placeholder="Confirm Password" valu>
                           <i id="icpwd" class="fa fa-check-circle" style="visibility: hidden;" aria-hidden="true"></i>
                         <br>  <small>Error Message</small>
                       </div>
-                      <input class="button" onclick="resetcolor()" type="button" value="SignUp">
+                      <input class="button"  type="submit" value="SignUp">
                   </div>
               </form>
           </div>
@@ -213,23 +213,25 @@ let form = document.querySelector("form");
 function validateInput() {
     // check username is empty 
     if (names.value.trim() === "") {
-        onError(names, "Name cannot be empty");
+        onError(names, "Name cannot be empty"); 
     }
     else {
         if(!isValidName(names.value.trim()))
         {
-            onError(names, "Enter your name");
+            onError(names, "Enter your name"); 
         }else{
+          
         document.getElementById("inames").style.visibility = "visible";
         onSuccess(names);}
     }
 
     if (email.value.trim() === "") {
-        onError(email, "Email cannot be empty!");
+        onError(email, "Email cannot be empty!"); 
     } else {
         if (!isValidEmail(email.value.trim())) {
-            onError(email, "Enter a valid email address");
+            onError(email, "Enter a valid email address"); 
         } else {
+          
             document.getElementById("iemail").style.visibility = "visible";
             onSuccess(email);
         }
@@ -237,7 +239,7 @@ function validateInput() {
 
     //password
     if (pwd.value.trim() === "") {
-        onError(pwd, "Password cannot be empty!");
+        onError(pwd, "Password cannot be empty!"); 
     } else {
        
        validatePassword(pwd);
@@ -248,13 +250,15 @@ function validateInput() {
         // }
     }
     if (cpwd.value.trim() === "") {
+      
         onError(cpwd, "Password cannot be empty");
     } else {
         if (pwd.value.trim() !== cpwd.value.trim()) {
             onError(cpwd, "Password & Confirm password not matching");
         }
         else
-        {document.getElementById("icpwd").style.visibility = "visible";
+        {f=0;
+          document.getElementById("icpwd").style.visibility = "visible";
             onSuccess(cpwd);}
     }
     //phone
@@ -273,9 +277,11 @@ function validateInput() {
 }
 
 document.querySelector("input.button")
-    .addEventListener("click", (event) => {
+    .addEventListener("mouseover", (event) => {
         event.preventDefault();
         validateInput();
+       
+       
     });
 
 function onSuccess(input) {
@@ -311,6 +317,7 @@ function validatePassword(pwd) {
     if (pwd.value.length < 8) {
         // console.log(getElementById("msg"));
         // console.log(msg);
+        
         document.getElementById("msg").innerText = "Password should be atleast 8 characters";
         document.getElementById("textbox1").style.height="45px";
 
